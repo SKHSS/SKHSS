@@ -25,7 +25,7 @@
             $(".hidden").removeClass("hidden");
             $("#bl").css("height", "calc(100% - " + topheight + "px)");
         });
-        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/3928690991978983108/posts?labels=welcome&key=AIzaSyAWR90rzSWzy4_iVbuar2mI2isqFMefe5c", crossDomain:true, cache:false }).done(function (data) {
+        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/4044680798603129481/posts?labels=welcome&key=AIzaSyBTOHgKrzopI45O0MlFIYS_OiKuFl1x09o", crossDomain: true, cache: false }).done(function (data) {
             $("#mainheader").text(data.items[0].title);
             $("#mainparagraph").html(data.items[0].content);
             $("#tlloading").addClass("hide");
@@ -34,7 +34,7 @@
             data.CAC_Type = "main";
             addCache(data, 3);
         });
-        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/3928690991978983108/posts?labels=main&key=AIzaSyAWR90rzSWzy4_iVbuar2mI2isqFMefe5c", crossDomain:true, cache: false }).done(function (data) {
+        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/4044680798603129481/posts?labels=main&key=AIzaSyBTOHgKrzopI45O0MlFIYS_OiKuFl1x09o", crossDomain: true, cache: false }).done(function (data) {
             if (data.items != 0) {
                 $("#bl").html("");
                 for (var i = 0; i < data.items.length; i++) {
@@ -66,7 +66,7 @@
                 shorten();
             }
         }
-        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/3928690991978983108/posts?start-index=1&labels=events&key=AIzaSyAWR90rzSWzy4_iVbuar2mI2isqFMefe5c", crossDomain: true, cache: false }).done(collectDates);
+        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/4044680798603129481/posts?start-index=1&labels=events&key=AIzaSyBTOHgKrzopI45O0MlFIYS_OiKuFl1x09o", crossDomain: true, cache: false }).done(collectDates);
         var datelist = [];
         var posted = false;
         function collectDates(data) {
@@ -84,7 +84,7 @@
                     datelist.push(data.items[i]);
                 }
                 if (!posted) {
-                    $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/3928690991978983108/posts?pageToken=" + data.nextPageToken + "&start-index=1&labels=events&key=AIzaSyAWR90rzSWzy4_iVbuar2mI2isqFMefe5c" }).done(collectDates);
+                    $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/4044680798603129481/posts?pageToken=" + data.nextPageToken + "&start-index=1&labels=events&key=AIzaSyBTOHgKrzopI45O0MlFIYS_OiKuFl1x09o" }).done(collectDates);
                 }
             }
             else {

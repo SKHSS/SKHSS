@@ -2,7 +2,7 @@
 @{Layout = null;}
 <script>
     $(document).ready(function (e) {
-        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/3928690991978983108/posts?labels=calendar&key=AIzaSyAWR90rzSWzy4_iVbuar2mI2isqFMefe5c" }).done(function (data) {
+        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/4044680798603129481/posts?labels=calendar&key=AIzaSyBTOHgKrzopI45O0MlFIYS_OiKuFl1x09o" }).done(function (data) {
             $("#calendar").html("");
             var ind = parseInt("@Global.CurrentSeasonID");
             var names = ["Basketball", "Baseball", "Soccer"];
@@ -95,7 +95,7 @@
         var allData = new Object();
         allData.CAC_Type = "events";
         allData.items = [];
-        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/3928690991978983108/posts?labels=events,@Global.CurrentYear,@Definitions.Seasons[Global.CurrentSeasonID].ToLower()&key=AIzaSyAWR90rzSWzy4_iVbuar2mI2isqFMefe5c" }).done(fetchlist);
+        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/4044680798603129481/posts?labels=events,@Global.CurrentYear,@Definitions.Seasons[Global.CurrentSeasonID].ToLower()&key=AIzaSyBTOHgKrzopI45O0MlFIYS_OiKuFl1x09o" }).done(fetchlist);
         function fetchlist(data) {
             var end = false;
             if (data.items) {
@@ -111,7 +111,7 @@
                 if (!end) {
                     var pt = data.nextPageToken;
                     if (data.nextPageToken) {
-                        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/3928690991978983108/posts?labels=events,@Global.CurrentYear,@Definitions.Seasons[Global.CurrentSeasonID].ToLower()&pageToken=" + pt + "&key=AIzaSyAWR90rzSWzy4_iVbuar2mI2isqFMefe5c" }).done(fetchlist);
+                        $.ajax({ url: "https://www.googleapis.com/blogger/v3/blogs/4044680798603129481/posts?labels=events,@Global.CurrentYear,@Definitions.Seasons[Global.CurrentSeasonID].ToLower()&pageToken=" + pt + "&key=AIzaSyBTOHgKrzopI45O0MlFIYS_OiKuFl1x09o" }).done(fetchlist);
                     } else {
                         postlist();
                     }
